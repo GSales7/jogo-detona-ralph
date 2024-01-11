@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-image: url("../imgs/wall.png");
 }
 
 .menu {
@@ -13,23 +14,55 @@
   width: 100%;
   background-color: #000000;
   color: #ffffff;
+
+  border-bottom: 5px solid #ffd700;
 }
+
+/* Outra forma de fazer essa separação do nome com o número */
+.menu-time h2:nth-child(1),
+.menu-score h2:nth-child(1) {
+  margin-bottom: 1rem;
+  color: #ff0000;
+}
+
+/* Essa é uma forma de fazer
+.menu-time #text-time {
+  margin-bottom: 10px;
+  color: #ff0000;
+}
+
+.menu-score #text-score {
+  margin-bottom: 10px;
+  color: #ff0000;
+} */
 
 .panel {
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ff0000;
 }
 
 .square {
   height: 150px;
   width: 150px;
   border: 1px solid #000000;
-  background-color: #7fffd4;
+  background-color: #1aeaa5;
 }
 
 .enemy {
-  background-color: #ff0000;
+  background-image: url("../imgs/ralph.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu-lives {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-lives img {
+  height: 60px;
 }

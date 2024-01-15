@@ -7,11 +7,11 @@ const state = {
   },
   values: {
     timeId: null,
-    gameVelocity: 1000, //Controla a velocidade de movimento do boneco
+    initialGameVelocity: 1000, //Velocidade inicial de movimento do boneco
+    gameVelocity: 1000, //Controla a velocidade de movimento do boneco (ms)
     hitPosition: 0, //Guarda o valor da posição onde clicou junto do inimigo
     result: 0,
-    initialTime: 10,
-    currentTime: 10,
+    currentTime: 30,
   },
 
   actions: {
@@ -29,17 +29,12 @@ function countDown() {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timeId);
     alert("Game Over! O seu resultado foi: " + state.values.result);
-    /* state.values.result = 0;
-    state.values.currentTime = 10; */
     resetGame();
   }
 }
 
 function resetGame() {
-  state.values.result = 0;
-  state.view.score.textContent = state.values.result;
-  state.values.currentTime = state.values.initialTime;
-  state.view.timeLeft.textContent = state.values.currentTime;
+  location.reload(); //Recarrega a página
 }
 
 //Função para ter som quando acertar o Ralph
@@ -64,6 +59,9 @@ function randomSquare() {
 //Função para mudar automaticamente a posição do inimigo
 function moveEnemy() {
   state.values.timeId = setInterval(randomSquare, state.values.gameVelocity);
+  console.log(`gameVelocity = ${state.values.gameVelocity}`);
+  console.log(`reuslt = ${state.values.result}`);
+  console.log(state.values.currentTime);
 }
 
 //Função para detectar o clique
